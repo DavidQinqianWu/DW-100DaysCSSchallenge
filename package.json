@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   
+   "css-watch": "npx node-sass --watch style.scss style.css"
   },
   "keywords": [],
   "author": "",
