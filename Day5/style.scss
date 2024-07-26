@@ -142,6 +142,7 @@ $blue: #7BA2FF;
                 bottom: 0;
             }
 
+            // svg 多边形 属性也能用 scss 去控制
             polyline {
                 fill: none;
                 stroke-width: 2;
@@ -301,7 +302,8 @@ $blue: #7BA2FF;
         .day {
             display: block;
             float: left;
-            width: (100% / 7);
+            // 自动计算宽度
+            width: calc(100% / 7);
             font-size: 9px;
             color: #949494;
             line-height: 30px;
