@@ -31,7 +31,16 @@
     // 偶数个元素
     &:nth-child(2) {
         margin: 1px 0; // 针对第2个子元素，设置上下外边距为1像素
+        
     }
+
+    /* 选择所有偶数的 li 元素，并将其背景颜色设置为浅灰色 */
+    // ul li:nth-child(even) {
+    // background-color: lightgray;
+    // }
+
 }
 
 ```
+
+
