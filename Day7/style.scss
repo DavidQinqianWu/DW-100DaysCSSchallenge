@@ -1,0 +1,274 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+:root {
+    --blue: #5f98cd;
+    --blue-light: #b2daff;
+    --blue-dark: #264057;
+    --back-blue-dark: #385269;
+    --back-blue: #43627d;
+    --back-text: #93b2cd;
+    --text: #666666;
+}
+
+body {
+    box-sizing: border-box;
+
+    h4,
+    p {
+        margin: 0;
+        padding: 0;
+        color: #fff;
+    }
+}
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: var(--blue-dark);
+    color: #333;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 300px;
+    background: var(--blue);
+    box-shadow: 5px 5px 15px #464545;
+    border-radius: 3px;
+    z-index: 2;
+    transition: 0.6s;
+
+    &.active {
+        transform: translate(0px, -50%);
+    }
+
+    .top {
+        position: relative;
+        display: flex;
+        padding: 15px 20px;
+        justify-content: space-between;
+        z-index: 2;
+
+        .toggle {
+            width: 29px;
+            height: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.4s;
+
+            &:hover .short,
+            &:hover .dot,
+            &:hover .long {
+                background: #fff;
+            }
+
+            .short,
+            .dot,
+            .long {
+                transition: 0.4s;
+                background: var(--blue-light);
+            }
+
+            .short {
+                width: 19px;
+                height: 3px;
+
+                border-radius: 3px;
+                margin-right: 2px;
+            }
+
+            .dot {
+                height: 7px;
+                width: 7px;
+                border-radius: 50%;
+            }
+
+            .long {
+                width: 28px;
+                height: 3px;
+                border-radius: 3px;
+            }
+        }
+
+        .search {
+            position: relative;
+            color: var(--blue-light);
+            cursor: pointer;
+            transition: 0.4s;
+
+            &:hover {
+                color: #fff;
+            }
+
+            input {
+                position: absolute;
+                width: 200px;
+                height: 30px;
+                right: 30px;
+                top: -5px;
+                border-radius: 20px;
+                border: none;
+                padding-inline: 16px;
+                color: var(--text);
+                opacity: 0;
+                transition: 0.4s;
+                pointer-events: none;
+
+                &:focus-visible {
+                    outline: none;
+                }
+
+                &.active {
+                    opacity: 1;
+                    right: 50px;
+                    pointer-events: auto;
+                }
+            }
+        }
+    }
+
+    .down {
+        width: 100%;
+        height: 248px;
+        background: #fff;
+        position: absolute;
+        z-index: 10;
+
+        & p,
+        h4 {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        p {
+            font-size: 0.7rem;
+        }
+
+        h4 {
+            font-weight: normal;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        .straight {
+            height: 99%;
+            width: 4px;
+            position: absolute;
+            background: #ebebeb;
+            left: 30px;
+            top: 1px;
+        }
+
+        .card {
+            display: flex;
+            z-index: 5;
+            padding: 20px 50px 20px 27px;
+            position: absolute;
+            cursor: pointer;
+
+            &:hover p,
+            &:hover h4 {
+                color: var(--blue);
+            }
+
+            .circle {
+                width: 8px;
+                height: 8px;
+                border: 2px solid var(--blue);
+                border-radius: 50%;
+                background: #fff;
+                outline: 3px solid #fff;
+                margin-right: 10px;
+                margin-top: 3px;
+                flex-shrink: 0;
+            }
+
+            &:nth-child(2) {
+                top: 40px;
+                opacity: 0;
+                animation: card1 0.5s linear forwards;
+            }
+
+            &:nth-child(3) {
+                top: 120px;
+                opacity: 0;
+                animation: card1 0.5s linear forwards;
+                animation-delay: 0.5s;
+            }
+
+            &:nth-child(4) {
+                top: 200px;
+                opacity: 0;
+                animation: card1 0.5s linear forwards;
+                animation-delay: 1s;
+            }
+        }
+    }
+}
+
+@keyframes card1 {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(-40px);
+        opacity: 1;
+    }
+}
+
+.back {
+    position: absolute;
+    width: 170px;
+    height: 250px;
+    background: var(--back-blue);
+    border-radius: 3px;
+    padding: 10px 0 10px 0;
+    color: var(--back-text);
+    list-style: none;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    top: 65px;
+    left: 65px;
+    z-index: 1;
+    transition: 0.6s;
+
+    &.active {
+        transform: translateX(-20px);
+    }
+
+    li {
+        padding: 15px 17px;
+        cursor: pointer;
+        transition: 0.4s;
+
+        &:hover {
+            color: #fff;
+            background: var(--back-blue-dark);
+        }
+
+        i {
+            margin-right: 10px;
+        }
+    }
+}
