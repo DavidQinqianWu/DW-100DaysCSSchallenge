@@ -1,0 +1,126 @@
+.main {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    height: 70vw;
+    background-color: black;
+    border-radius: 1vw;
+    filter: contrast(20);
+}
+
+.ball {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
+    background-color: white;
+    filter: blur(1vw);
+}
+
+div[class^="p"] {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    height: 9vw;
+    width: 9vw;
+    background-color: white;
+    filter: blur(1vw);
+}
+
+div[class^="p1"] {
+    transform-origin: top;
+    top: 60%;
+    left: 50%;
+    animation: rotate 3s linear infinite;
+}
+
+div[class^="p2"] {
+    transform-origin: bottom;
+    top: 40%;
+    left: 50%;
+    animation: rotate 3s linear infinite;
+}
+
+div[class^="p3"] {
+    transform-origin: left;
+    top: 50%;
+    left: 53%;
+    animation: rotate 3s linear infinite;
+}
+
+div[class^="bu"] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 5vw;
+    height: 5vw;
+    background-color: white;
+    transform: translate(-50%, -50%);
+}
+
+div[class="bu1"]::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 3vw;
+    height: 3vw;
+    background: white;
+    border-radius: 50%;
+    transform-origin: 10vw 10vw;
+    animation: rotate 3s linear infinite;
+    filter: blur(1vw);
+}
+
+div[class="bu2"]::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 5vw;
+    height: 5vw;
+    background: white;
+    border-radius: 50%;
+    transform-origin: -5vw -5vw;
+    animation: rotate1 3s linear infinite;
+    filter: blur(1vw);
+}
+
+div[class="bu3"]::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 2vw;
+    height: 2vw;
+    background: white;
+    border-radius: 50%;
+    transform-origin: 10vw 15vw;
+    animation: rotate1 3s linear infinite;
+    filter: blur(1vw);
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes rotate1 {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
